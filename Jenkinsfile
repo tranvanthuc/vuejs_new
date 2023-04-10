@@ -53,7 +53,7 @@ pipeline {
                     //         choice(name: 'type_version', choices: ['Major', 'Minor', 'Patch'], description: 'Choose type of version:')
                     //     ]
                     // }
-                    helper.buildImage('PATCH')
+                    helper.buildImage('Patch')
                 }
             }
         }
