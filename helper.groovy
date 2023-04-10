@@ -8,12 +8,12 @@ def build() {
 }
 
 def buildImage(String type) {
-    echo "Testing app ... with $BRANCH_NAME"
     def newVersion = common.updateVersion(
         file: 'package.json',
         type: type
     )
     echo "New Version $newVersion"
+    env.newVersion = newVersion
     docker_util.buildImage(
         creId: 'docker_hub', 
         imageName: 'vuejs_app', 
@@ -38,6 +38,10 @@ def deploy() {
     //     slackSend(color: 'good', message: "Deployed to server ${BRANCH_NAME}")
     // }
     echo 'Deploying ...'
+}
+
+def commitVersion() {
+    echo "New version : $newVersion"
 }
 
 

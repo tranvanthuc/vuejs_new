@@ -66,6 +66,7 @@ pipeline {
             steps {
                 script {
                     helper.deploy()
+                    helper.commitVersion()
                 }
             }
         }
