@@ -42,6 +42,13 @@ def deploy() {
 
 def commitVersion() {
     echo "New version : $newVersion"
+    common.commitVersion(
+        credentialsId: 'tranvanthuc-github',
+        email: 'thuctran@gmail.com',
+        username: 'thuctran',
+        remoteUrl: 'github.com/tranvanthuc/vuejs_new.git',
+        version: newVersion
+    )
 }
 
 
