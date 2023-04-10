@@ -1,0 +1,5 @@
+node_modules/*
+ansible/*
+!ansible/nginx.conf
+.vscode/*
+dist/*
