@@ -2,7 +2,6 @@ version: '3.8'
 
 services:
   web:
-    platform: linux/amd64
     image: nobitran/vuejs_app:latest
     ports:
       - 3000:80

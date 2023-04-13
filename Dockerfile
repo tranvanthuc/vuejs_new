@@ -1,5 +1,5 @@
 # build stage
-FROM node:lts-alpine as build-stage
+FROM --platform=linux/amd64 node:lts-alpine as build-stage
 WORKDIR /app
 COPY package.json ./
 RUN npm i
