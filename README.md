@@ -39,3 +39,17 @@ npm run test:unit
 ```sh
 npm run lint
 ```
+
+### Jenkins Plugins
+
+https://www.jenkins.io/doc/pipeline/steps/ssh-steps/
+
+https://www.jenkins.io/doc/pipeline/steps/credentials-binding/
+
+https://plugins.jenkins.io/slack/
+
+https://plugins.jenkins.io/pipeline-utility-steps/ 
+
+https://plugins.jenkins.io/multibranch-scan-webhook-trigger/
+
+https://plugins.jenkins.io/ignore-committer-strategy 
