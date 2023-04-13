@@ -22,21 +22,6 @@ def buildImage(String type) {
 }
 
 def deploy() {
-    // withCredentials([sshUserPrivateKey(
-    //     credentialsId: 'vuejs-server', 
-    //     usernameVariable: 'USER', 
-    //     keyFileVariable: 'KEY_FILE'),
-    //     string(credentialsId: 'vuejs-server-ip', variable: 'EC2_IP')
-    // ]) {
-    //     def remote = [:]
-    //     remote.name = USER
-    //     remote.host = EC2_IP
-    //     remote.user = USER
-    //     remote.identityFile = KEY_FILE
-    //     remote.allowAnyHosts = true
-    //     sshCommand remote: remote, command: "./deployfe.sh"
-    //     slackSend(color: 'good', message: "Deployed to server ${BRANCH_NAME}")
-    // }
     echo 'Deploying ...'
     dir('ansible') {
         withCredentials([
