@@ -39,10 +39,17 @@ def deploy() {
     // }
     echo 'Deploying ...'
     dir('ansible') {
-        withCredentials([string(credentialsId: 'ec2-keypem', variable: 'EC2_KEY')]) {
-            sh "echo $EC2_KEY > ec2_key.pem"
+        withCredentials([
+            sshUserPrivateKey(
+                credentialsId: 'ec2-key', 
+                usernameVariable: 'USER', 
+                keyFileVariable: 'KEY_FILE'
+            )
+        ]) {
+            sh "echo $KEY_FILE > ec2_key.pem"
+            sh 'chmod 400 ec2_key.pem'
         }
-        sh 'ansible-inventory -i aws_ec2.yaml --graph'
+        sh 'ansible-playbook playbook_deploy_dev.yaml'
     }
 }
 
