@@ -48,8 +48,43 @@ https://www.jenkins.io/doc/pipeline/steps/credentials-binding/
 
 https://plugins.jenkins.io/slack/
 
-https://plugins.jenkins.io/pipeline-utility-steps/ 
+https://plugins.jenkins.io/pipeline-utility-steps/
 
 https://plugins.jenkins.io/multibranch-scan-webhook-trigger/
 
-https://plugins.jenkins.io/ignore-committer-strategy 
+https://plugins.jenkins.io/ignore-committer-strategy
+
+### Create infra & install packages
+
+- Use template dev
+
+```
+cd /Users/tranvanthuc/Documents/projects/temp/terraform/template/dev
+```
+
+- This command will create server and run ansible
+
+```
+terraform apply --auto-approve
+```
+
+- Run ansible-playbook
+
+```
+cd /Users/tranvanthuc/Documents/projects/temp/ansible/flow-jenkins
+```
+
+- Run script to deploy server dev
+```
+ansible-playbook playbook_deploy_dev.yaml
+```
+
+- Dynamic inventory
+```
+ansible-inventory -i aws_ec2.yaml --graph
+```
+
+### Jenkins to run Ansible
+- Set aws credentials inside Jenkins container
+
+- Store ec2-key on Jenkins (Username/Private key)
