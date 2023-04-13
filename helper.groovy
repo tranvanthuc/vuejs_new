@@ -46,8 +46,7 @@ def deploy() {
                 keyFileVariable: 'KEY_FILE'
             )
         ]) {
-            def privateKey = readFile("${KEY_FILE}")
-            writeFile file: 'ec2_key.pem', text: privateKey
+             sh 'cp $KEY_FILE ec2_key.pem'
             sh 'chmod 400 ec2_key.pem'
         }
         sh 'ansible-playbook playbook_deploy_dev.yaml'

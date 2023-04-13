@@ -74,15 +74,15 @@ pipeline {
     }
     post {
         // Clean after build
-        // always {
-        //     cleanWs(
-        //         cleanWhenNotBuilt: false,
-        //         deleteDirs: true,
-        //         disableDeferredWipeout: true,
-        //         notFailBuild: true,
-        //         skipWhenFailed: true
-        //     )
-        // }
+        always {
+            cleanWs(
+                cleanWhenNotBuilt: false,
+                deleteDirs: true,
+                disableDeferredWipeout: true,
+                notFailBuild: true,
+                skipWhenFailed: true
+            )
+        }
         success {
             echo 'I succeeded! '
             script {
