@@ -1,6 +1,6 @@
 ---
 plugin: aws_ec2
-aws_profile: itmentor
+aws_profile: default
 region: ap-southeast-1
 filters:
   tag:Name: 
