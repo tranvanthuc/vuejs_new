@@ -1,0 +1,12 @@
+---
+# install packages
+- name: Install packages (git, nginx, nodejs)
+  hosts: tag_dev_ec2
+  tasks:
+    # run docker-compose file
+    - name: Run docker-compose.yaml
+      docker_compose:
+        project_src: ~/scripts
+        pull: true
+        restarted: true
+        state: present

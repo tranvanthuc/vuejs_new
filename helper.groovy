@@ -38,6 +38,10 @@ def deploy() {
     //     slackSend(color: 'good', message: "Deployed to server ${BRANCH_NAME}")
     // }
     echo 'Deploying ...'
+    withCredentials([string(credentialsId: 'ec2-keypem', variable: 'EC2_KEY')]) {
+        echo "$EC2_KEY" > ansible/ec2_key.pem
+    }
+    sh 'ansible-inventory -i aws_ec2.yaml --graph'
 }
 
 def commitVersion() {

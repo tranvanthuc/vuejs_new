@@ -53,7 +53,8 @@ pipeline {
                     //         choice(name: 'type_version', choices: ['Major', 'Minor', 'Patch'], description: 'Choose type of version:')
                     //     ]
                     // }
-                    helper.buildImage('Patch')
+                    // helper.buildImage('Patch')
+                    echo 'Build image'
                 }
             }
         }
@@ -66,22 +67,22 @@ pipeline {
             steps {
                 script {
                     helper.deploy()
-                    helper.commitVersion()
+                    // helper.commitVersion()
                 }
             }
         }
     }
     post {
         // Clean after build
-        always {
-            cleanWs(
-                cleanWhenNotBuilt: false,
-                deleteDirs: true,
-                disableDeferredWipeout: true,
-                notFailBuild: true,
-                skipWhenFailed: true
-            )
-        }
+        // always {
+        //     cleanWs(
+        //         cleanWhenNotBuilt: false,
+        //         deleteDirs: true,
+        //         disableDeferredWipeout: true,
+        //         notFailBuild: true,
+        //         skipWhenFailed: true
+        //     )
+        // }
         success {
             echo 'I succeeded! '
             script {
