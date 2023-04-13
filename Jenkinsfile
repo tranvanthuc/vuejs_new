@@ -53,8 +53,7 @@ pipeline {
                     //         choice(name: 'type_version', choices: ['Major', 'Minor', 'Patch'], description: 'Choose type of version:')
                     //     ]
                     // }
-                    // helper.buildImage('Patch')
-                    echo 'Build image'
+                    helper.buildImage('Patch')
                 }
             }
         }
@@ -67,7 +66,7 @@ pipeline {
             steps {
                 script {
                     helper.deploy()
-                    // helper.commitVersion()
+                    helper.commitVersion()
                 }
             }
         }

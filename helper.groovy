@@ -46,7 +46,7 @@ def deploy() {
                 keyFileVariable: 'KEY_FILE'
             )
         ]) {
-             sh 'cp $KEY_FILE ec2_key.pem'
+            sh 'cp $KEY_FILE ec2_key.pem'
             sh 'chmod 400 ec2_key.pem'
         }
         sh 'ansible-playbook playbook_deploy_dev.yaml'
