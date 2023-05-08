@@ -8,7 +8,8 @@
     "preview": "vite preview",
     "test:unit": "vitest",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "migrate": "echo 'Migrate'"
   },
   "dependencies":   {
     "pinia": "^2.0.32",
